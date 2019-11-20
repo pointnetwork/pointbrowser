@@ -1,0 +1,290 @@
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome.scss";
+@import "../_point_protocol/fonts/fonts.css";
+
+$base-color: #071b46;
+$tab-border: #4f4f4f;
+//$active-tab-label: #1883ff;
+$active-tab-label: #5aa4ff;
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  //background: #050505;
+  background: $base-color;
+  font-family: 'Helvetica Neue', arial, sans-serif;
+  font-weight: 400;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v29/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.mdc-theme--dark {
+	background-color: #333;
+	color: #fff;
+}
+
+.mdc-theme--dark .mdc-card {
+  color: #444;
+}
+
+.hide {
+  display: none;
+}
+
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-flow: column;
+}
+
+.tab-switcher {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+
+  display: flex;
+  flex: 0 1 30px;
+  height: 30px;
+
+  padding: 0;
+  margin: 0;
+  margin-top: 5px;
+
+  padding-left: 80px;
+
+  li {
+    -webkit-app-region: no-drag;
+    -webkit-user-select: none;
+
+    width: 200px;
+    display: inline-block;
+    border: 1px solid $tab-border;
+
+    margin-left: -1px; // collapses borders
+
+    padding: 3px;
+    padding-left: 5px;
+    padding-top: 4px;
+
+    font-size: 16px;
+    height: 100%;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    color: #ccc;
+
+    display: flex;
+    flex-flow: row;
+
+    .tab-favicon {
+      img {
+        width: 16px;
+        height: 16px;
+        margin-right: 0.3em;
+        position: relative;
+        top: 1px;
+      }
+    }
+
+    .title {
+      text-overflow: ellipsis;
+      display: block;
+      /* Required for text-overflow to do anything */
+      white-space: nowrap;
+      overflow: hidden;
+
+      width: 100%;
+    }
+
+    &:hover {
+      background-color: lighten($base-color, 5%);
+      border-top: 2px solid #777;
+      //border-bottom: 0;
+      position: relative;
+      top: -1px;
+    }
+    &.active {
+      color: white;
+      border-bottom: 0;
+      background-color: lighten($base-color, 7%);
+      border-top: 2px solid $active-tab-label;
+      &:hover {
+        top: 0;
+      }
+    }
+
+    &.new-tab-button {
+      width: 31px;
+      font-size: 13px;
+      vertical-align: top;
+      padding-left: 9px;
+      padding-top: 8px;
+      margin-top: 1px;
+      &:hover {
+        padding-top: 7px;
+      }
+    }
+
+    .close-tab-button {
+      float: right;
+      width: 15px;
+      height: 15px;
+      margin-left: 5px;
+      border: 0;
+      border-radius: 7px;
+
+      position: relative;
+      top: 3px;
+      right: 3px;
+      text-align: center;
+      line-height: 12px;
+
+      &:hover {
+        background-color: #999;
+        color: #444444;
+      }
+    }
+  }
+}
+
+.address-bar-container {
+  -webkit-app-region: no-drag;
+
+  flex: 0 1 auto;
+
+  display: flex;
+  flex-flow: row;
+
+  z-index: 1;
+
+  width: 100%;
+
+  //background-color: #444444;
+  //background-color: $base-color;
+
+  padding: 4px;
+
+  border-top: 1px solid darken($tab-border, 5%);
+  //border-bottom: 1px solid darken($tab-border, 10%);
+  box-shadow: 0px 1px 3px #000;
+
+  button {
+    flex: 0 1 30px;
+    background-color: transparent;
+    color: #eee;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin: 2px;
+    outline-width: 0;
+    font-size: 14px;
+    &.btn-repeat {
+      font-size: 17px;
+      padding-top: 3px;
+    }
+    &.btn-menu {
+      font-size: 17px;
+      padding-top: 3px;
+    }
+
+    &:hover {
+      background-color: lighten($base-color, 10%);
+    }
+    &:active:hover {
+      background-color: lighten($base-color, 15%);
+    }
+  }
+
+  .address-bar {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+
+    margin-left: 8px;
+    //padding-left: 7px;
+
+    border: 1px solid $tab-border;
+    //border-radius: 2px;
+    border-radius: 17px;
+    padding-left: 13px;
+
+    height: 34px;
+
+    outline-width: 0;
+
+    background-color: #ccc;
+    &:hover, &:focus {
+      background-color: #efefef;
+    }
+
+    font-size: 15px;
+  }
+
+}
+
+.tab-container {
+  -webkit-app-region: no-drag;
+
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  position: relative;
+
+  background-color: white;
+
+  .tab {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    webview {
+      width: 100%;
+      height: 100%;
+    }
+
+    .target-url-tooltip {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      background-color: #ccc;
+      color: #555;
+      font-size: 13px;
+      padding: 3px;
+    }
+  }
+}
