@@ -1,5 +1,7 @@
 # Point Browser
 
+![Screenshot](/misc/screenshot.jpg)
+
 To run locally, execute `npm run dev`
 
 ## CLI Commands
