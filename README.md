@@ -1,5 +1,7 @@
 Point Browser
 
+To run locally, execute `npm run dev`
+
 ## CLI Commands
 
 ``` bash
