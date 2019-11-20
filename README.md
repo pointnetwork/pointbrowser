@@ -1,4 +1,4 @@
-Point Browser
+# Point Browser
 
 To run locally, execute `npm run dev`
 
