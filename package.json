@@ -26,7 +26,7 @@
     "build/*"
   ],
   "devDependencies": {
-    "electron": "^4.0.5",
+    "electron": "^9.1.0",
     "electron-builder": "^20.38.5",
     "eslint": "^4.5.0",
     "eslint-config-synacor": "^1.1.0",
