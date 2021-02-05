@@ -38,6 +38,7 @@
   "dependencies": {
     "encoding": "^0.1.12",
     "font-awesome": "^4.7.0",
+    "foreman": "^3.0.1",
     "lodash": "^4.17.15",
     "preact": "^8.2.1",
     "preact-compat": "^3.17.0",
